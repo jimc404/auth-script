@@ -1,0 +1,38 @@
+# auth-script
+Use it to authenticate for internet access on IITG network. Useful for systems with only SSH access (SSH tunnels are blocked on institute network) 
+
+## Instructions (For linux based systems)
+* Download ```script.sh```
+* Open the file and replace ```uname``` and ```passwd``` in the file with your username and password
+* Make it executable with the following command
+```
+chmod +x script.sh
+```
+* Execute the file:
+```
+./script.sh
+```
+
+After first time setup is done, only the last command is needed for subsequent uses
+
+
+### The script authenticates every 500 seconds and stops when authentication fails. Just open another terminal and use it normally. 
+### To keep using the same terminal send this script to background with the following steps:
+
+
+1. Start the script normally:
+```
+./script.sh
+```
+2. Pause it by pressing ```Ctrl+Z```
+3. Move it to background by typing 
+```
+bg
+```
+
+
+To bring it back to foreground type:
+```
+fg
+```
+There are better methods but this is the simplest one of them
