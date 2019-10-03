@@ -8,7 +8,8 @@ while true
 		magic=$(curl -s -k "https://agnigarh.iitg.ac.in:1442/login?" | grep "name=\"magic\"" | grep -oP 'value="\K[^"]*')
 
 		auth=$(curl -s -k  "https://agnigarh.iitg.ac.in:1442/" --data "4Tredir=https%3A%2F%2Fagnigarh.iitg.ac.in%3A1442%2Flogin%3F&magic=$magic&username=$username&password=$password" --compressed | grep -Eo "https:\/\/agnigarh.iitg.ac.in:1442\/keepalive\?[A-Za-z0-9]+")
-		echo "Auth started"
+		time=$(date +%H:%M:%S)
+		echo "$time: Auth started"
 		status="true"
 
 		while [ "$status" = "true" ]  
@@ -17,7 +18,8 @@ while true
 		        if [ "$alive" != "$auth" ]
 		        then
 		            status="false"
-		            echo "Auth failed"
+		            time=$(date +%H:%M:%S)
+		            echo "$time: Auth failed"
 		        else
 		            sleep 150
 		        fi
