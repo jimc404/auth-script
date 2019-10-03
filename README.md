@@ -1,6 +1,12 @@
 # auth-script
 Use it to authenticate for internet access on IITG network. Useful for systems with only SSH access (SSH tunnels are blocked on institute network) 
 
+### Note:
+The script can reconnect automatically but it may take time.
+
+On a normal disconnect (power cut or system put on sleep) it can take upto 3 minutes. In other cases it may take more time, manually disconnecting and reconnecting is advised in such cases.
+  
+  
 ## Instructions (For linux based systems)
 * Download ```script.sh```
 * Open the file and replace ```uname``` and ```passwd``` in the file with your username and password
