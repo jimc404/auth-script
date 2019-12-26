@@ -31,7 +31,7 @@ After first time setup is done, only the last command is needed for subsequent u
 ./script.sh
 ```
 2. Pause it by pressing ```Ctrl+Z```
-3. Move it to background by typing 
+3. Move it to background and resume by typing 
 ```
 bg
 ```
