@@ -19,10 +19,17 @@ while true
 		        then
 		            status="false"
 		            time=$(date +%H:%M:%S)
-		            echo "$time: Auth failed"
+		            echo "$time: Auth failed (status 1: New refresh url does not match existing)" #Mostly occurs when regfesh URL expires (will re-attempt login)
 		        else
-		            sleep 150
+		        	if [[ -z "$alive" ]] 
+		        	then
+		            	status="false"
+		            	time=$(date +%H:%M:%S)
+		            	echo "$time: Auth failed (status 2: Refresh URL was empty)" #this happens when refresh and login fail consecutively (mostly happens when there are power cuts or a non IITG network is used)
+		            else
+		            	sleep 150
+		            fi
 		        fi
-		done
+			done
 		sleep 30
 	done
